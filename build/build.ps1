@@ -4,7 +4,6 @@ param (
 
 $projectName = "Pshark"
 $windowspythonScript = "windows\main.py"
-$linuxpythonScript = "linux/main.py"
 $outputFolder = "dist"
 $buildCommand = "pyinstaller"
 
@@ -31,10 +30,10 @@ if ($missingPackages.Count -gt 0) {
     }
 }
 
-if ($userInput -eq "windows" -or $userInput -eq "linux") {
+if ($userInput -eq "windows") {
     Write-Host "Building $projectName for $userInput..."
 
-    $pythonScript = if ($userInput -eq "windows") { $windowspythonScript } else { $linuxpythonScript }
+    $pythonScript = if ($userInput -eq "windows") { $windowspythonScript }
     $buildCmd = "$buildCommand $pythonScript --onefile --name $projectName --distpath $outputFolder --clean"
 
     Invoke-Expression -Command $buildCmd
