@@ -34,16 +34,11 @@ def get_valid_network_interface():
     else:
         raise ValueError("No valid network interface found.")
 
-#def get_newest_version():
-#    newest_version = "0.0.2"
-#    return newest_version
-
 COMMANDS = {
     "start": lambda: sniff(iface=get_valid_network_interface(), prn=lambda x: x.summary()),
     "info": print_network_interfaces,
     "version": lambda: print(f"Current version: {get_version_number()}"),
-#    "update": lambda: print(f"Newest version: {get_newest_version()}"),
-    "exit": exit,
+    "quit": sys.exit,
     "help": lambda: print_help(),
 }
 
@@ -51,9 +46,8 @@ def print_help():
     print("help:     Prints out this menu")
     print("start:    Starts the packet sniffer")
     print("version:  Prints out current version")
-#    print("update:   Retrieves the newest version")
     print("info:     Prints out all your network interfaces info")
-    print("exit:     Quit app")
+    print("quit:     Quit app")
 
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "/?":
