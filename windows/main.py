@@ -32,7 +32,8 @@ def get_valid_network_interface():
     if valid_interfaces:
         return valid_interfaces[0]
     else:
-        raise ValueError("No valid network interface found.")
+        print("No valid network interface found.")
+        return None
 
 COMMANDS = {
     "start": lambda: sniff(iface=get_valid_network_interface(), prn=lambda x: x.summary()),
