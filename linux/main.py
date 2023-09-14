@@ -4,7 +4,7 @@ import socket
 from scapy.all import sniff
 
 def get_version_number():
-    with open('.version', 'r') as file:
+    with open('version', 'r') as file:
         contents = file.read()
 
         for line in contents.split("\n"):
