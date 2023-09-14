@@ -5,7 +5,7 @@ param (
 $projectName = "Pshark"
 $windowspythonScript = "windows\main.py"
 $linuxpythonScript = "linux/main.py"
-$outputFolder = ".\dist"
+$outputFolder = "dist"
 $buildCommand = "pyinstaller"
 
 function Remove-BuildFolder {
@@ -13,13 +13,6 @@ function Remove-BuildFolder {
         Write-Host "Removing build folder: $outputFolder"
         Remove-Item -Path $outputFolder -Force -Recurse
     }
-}
-
-# Determine the correct path separator based on the platform
-if ($env:OS -eq "Windows_NT") {
-    $pathSeparator = "\"
-} else {
-    $pathSeparator = "/"
 }
 
 if (-not (Test-Path -PathType Container $outputFolder)) {
@@ -44,24 +37,13 @@ if ($userInput -eq "windows" -or $userInput -eq "linux") {
     $pythonScript = if ($userInput -eq "windows") { $windowspythonScript } else { $linuxpythonScript }
     $buildCmd = "$buildCommand $pythonScript --onefile --name $projectName --distpath $outputFolder --clean"
 
-    # Use the platform-specific command to invoke the build
-    if ($env:OS -eq "Windows_NT") {
-        Invoke-Expression -Command $buildCmd
-    } else {
-        # Use the bash shell to run the command on Linux
-        bash -c $buildCmd
-    }
+    Invoke-Expression -Command $buildCmd
 }
 elseif ($userInput -eq "clean") {
-    $itemsToRemove = @($outputFolder, ".\build\Pshark", "Pshark.spec")
+    $itemsToRemove = @(".\dist", ".\build\Pshark", "Pshark.spec")
     
     foreach ($item in $itemsToRemove) {
-        # Use the platform-specific command to remove items
-        if ($env:OS -eq "Windows_NT") {
-            Remove-Item $item -Force -Recurse
-        } else {
-            rm -rf $item
-        }
+        Remove-Item $item -Force -Recurse
     }
 }
 else {
