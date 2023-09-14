@@ -15,6 +15,13 @@ function Remove-BuildFolder {
     }
 }
 
+# Determine the correct path separator based on the platform
+if ($env:OS -eq "Windows_NT") {
+    $pathSeparator = "\"
+} else {
+    $pathSeparator = "/"
+}
+
 if (-not (Test-Path -PathType Container $outputFolder)) {
     New-Item -ItemType Directory -Force -Path $outputFolder
 }
@@ -37,13 +44,24 @@ if ($userInput -eq "windows" -or $userInput -eq "linux") {
     $pythonScript = if ($userInput -eq "windows") { $windowspythonScript } else { $linuxpythonScript }
     $buildCmd = "$buildCommand $pythonScript --onefile --name $projectName --distpath $outputFolder --clean"
 
-    Invoke-Expression -Command $buildCmd
+    # Use the platform-specific command to invoke the build
+    if ($env:OS -eq "Windows_NT") {
+        Invoke-Expression -Command $buildCmd
+    } else {
+        # Use the bash shell to run the command on Linux
+        bash -c $buildCmd
+    }
 }
 elseif ($userInput -eq "clean") {
-    $itemsToRemove = @(".\dist", ".\build\Pshark", "Pshark.spec")
+    $itemsToRemove = @($outputFolder, ".\build\Pshark", "Pshark.spec")
     
     foreach ($item in $itemsToRemove) {
-        Remove-Item $item -Force -Recurse
+        # Use the platform-specific command to remove items
+        if ($env:OS -eq "Windows_NT") {
+            Remove-Item $item -Force -Recurse
+        } else {
+            rm -rf $item
+        }
     }
 }
 else {
