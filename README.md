@@ -1,18 +1,24 @@
-<h1 align="center">
-    Pshark
-</h1>
+# Pshark - Python Terminal Packet Sniffer
+Pshark is a robust terminal-based packet sniffer coded in Python, providing powerful network analysis capabilities.
 
-# windows installation
-Run powershell as administrator and then cd into the build directory.
+## How to Use Pshark
+Run the following command in your terminal to unleash the full potential of Pshark:
+```
+python pshark.py
+```
 
-After, run the the following command into the powershell:
-```
-./build.ps1 windows
-```
-# linux installation
-Run the terminal in your linux environment and [install powershell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-debian?view=powershell-7.3) manually. 
+## How to create an executable 
 
-Next, do the same thing that we did in the windows installation and run the powershell script:
-```
-./build.ps1 linux
-```
+### Windows
+    Run the following command in your terminal to create the executable of Pshark:
+    ```
+    .\build\build.ps1 windows
+    ```
+
+### Linux
+    Run the following command in your terminal to create the executable of Pshark:
+    ```
+    ./build/build.ps1 linux
+    ```
+
+Pshark empowers you with comprehensive packet analysis tools, all from the convenience of your terminal.
