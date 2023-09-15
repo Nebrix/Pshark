@@ -10,15 +10,15 @@ python pshark.py
 ## How to create an executable 
 
 ### Windows
-    Run the following command in your terminal to create the executable of Pshark:
-    ```
-    .\build\build.ps1 windows
-    ```
+  To run PhoneDNS on Windows, simply execute the following command in your terminal: 
+  ```
+  .\build\build.ps1 windows
+  ```
 
 ### Linux
-    Run the following command in your terminal to create the executable of Pshark:
-    ```
-    ./build/build.ps1 linux
-    ```
+  For Linux users, run the following command in your terminal:
+  ```
+  ./build/build.ps1 linux
+  ```
 
 Pshark empowers you with comprehensive packet analysis tools, all from the convenience of your terminal.
