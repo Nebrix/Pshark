@@ -3,8 +3,8 @@ param (
 )
 
 $projectName = "Pshark"
-$windowspythonScript = "windows\main.py"
-$linuxpythonScript = "linux/main.py"
+$windowspythonScript = "windows\pshark.py"
+$linuxpythonScript = "linux/pshark.py"
 $outputFolder = "dist"
 $buildCommand = "pyinstaller"
 
