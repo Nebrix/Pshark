@@ -19,7 +19,7 @@ if (-not (Test-Path -PathType Container $outputFolder)) {
     New-Item -ItemType Directory -Force -Path $outputFolder
 }
 
-$requiredPackages = "pyinstaller", "scapy", "psutil"
+$requiredPackages = "pyinstaller", "scapy", "psutil", "pygit2", "pathlib", "os" # os is there temp
 $installedPackages = Get-Content "requirements.txt" | ForEach-Object { $_.Trim() }
 $missingPackages = $requiredPackages | Where-Object { $_ -notin $installedPackages }
 

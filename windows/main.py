@@ -3,6 +3,10 @@ import psutil
 import socket
 from scapy.all import sniff
 
+# Libraries made by users will be listed and imported bellow
+from maintenance.update import update
+# ---------------------------------------------------------
+
 def get_version_number():
     with open('version', 'r') as file:
         contents = file.read()
@@ -38,6 +42,7 @@ def get_valid_network_interface():
 COMMANDS = {
     "start": lambda: sniff(iface=get_valid_network_interface(), prn=lambda x: x.summary()),
     "info": print_network_interfaces,
+    "update": lambda: update(),
     "version": lambda: print(f"Current version: {get_version_number()}"),
     "quit": sys.exit,
     "help": lambda: print_help(),
@@ -50,6 +55,7 @@ def print_help():
     print("info:     Prints out all your network interfaces info")
     print("quit:     Quit app")
 
+# who tf put a main function, is this C?
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == "/?":
         print_help()
