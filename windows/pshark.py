@@ -52,6 +52,7 @@ def print_help():
     print("help:     Prints out this menu")
     print("start:    Starts the packet sniffer")
     print("version:  Prints out current version")
+    print("update:   Updates the version Pshark")
     print("info:     Prints out all your network interfaces info")
     print("quit:     Quit app")
 
