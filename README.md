@@ -1,6 +1,9 @@
 # Pshark - Python Terminal Packet Sniffer
 Pshark is a robust terminal-based packet sniffer coded in Python, providing powerful network analysis capabilities.
 
+# Install npcap
+[Install Npcap to use scapy python lib](https://npcap.com/)
+
 ## How to Use Pshark
 Run the following command in your terminal to unleash the full potential of Pshark:
 ```
