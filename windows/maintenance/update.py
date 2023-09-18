@@ -6,7 +6,7 @@ from pathlib import Path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the script
 
 EXIT_SUCCESS = 0
-REPOSITORY_LINK = "https://github.com/RatGrandmother/Pshark.git"
+REPOSITORY_LINK = "https://github.com/SecLabX/Pshark.git"
 
 def update():
     # Cache Stuff
