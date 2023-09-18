@@ -57,7 +57,7 @@ def print_help():
     print("quit:     Quit app")
 
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] == "/?":
+    if len(sys.argv) > 1 and sys.argv[1] == "--help":
         print_help()
 
     while True:
