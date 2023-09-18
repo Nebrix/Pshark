@@ -47,5 +47,3 @@ def update():
     os.system(f"git pull {REPOSITORY_LINK}")
 
     return EXIT_SUCCESS
-
-update()
