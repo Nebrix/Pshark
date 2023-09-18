@@ -2,7 +2,7 @@
 Pshark is a robust terminal-based packet sniffer coded in Python, providing powerful network analysis capabilities.
 
 # Installation
-Before using Pshark, make sure to install Npcap, a prerequisite for utilizing the scapy Python library. You can download and install Npcap from the official Npcap website.
+Before using Pshark, make sure to install Npcap, a prerequisite for utilizing the scapy Python library. You can download and install Npcap from the official [Npcap website](https://npcap.com/).
 
 # Getting Started
 To harness the full potential of Pshark, follow these simple steps:
@@ -10,13 +10,11 @@ To harness the full potential of Pshark, follow these simple steps:
 Clone the repository to your local machine:
 
 ```
-bash
 git clone https://github.com/yourusername/pshark.git
 ```
 Navigate to the project directory:
 
 ```
-bash
 cd pshark
 ```
 Run Pshark in your terminal:
@@ -38,13 +36,11 @@ python pshark.py
 
   Open your terminal and navigate to the project directory:
   ```
-  bash
   cd pshark
   ```
   Run the following command:
 
   ```
-  bash
   ./build/build.ps1 linux
   ```
 This will generate a Linux executable, allowing you to use Pshark on Linux systems without Python dependencies.
