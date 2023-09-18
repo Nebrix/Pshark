@@ -3,6 +3,10 @@ import psutil
 import socket
 from scapy.all import sniff
 
+
+# user headers
+from maintenance.update import update
+
 def get_version_number():
     with open('version', 'r') as file:
         contents = file.read()
@@ -39,6 +43,7 @@ COMMANDS = {
     "start": lambda: sniff(iface=get_valid_network_interface(), prn=lambda x: x.summary()),
     "info": print_network_interfaces,
     "version": lambda: print(f"Current version: {get_version_number()}"),
+    "update": lambda: update(),
     "quit": sys.exit,
     "help": lambda: print_help(),
 }
